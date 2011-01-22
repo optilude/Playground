@@ -1,0 +1,12 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Contexts</h1>
+
+<ul>
+#{list items:contexts, as:'context' }
+	
+	<li><a href="@{Contexts.view(context.shortName)}">${context.name}</a></li>
+
+#{/list}
+</ul>

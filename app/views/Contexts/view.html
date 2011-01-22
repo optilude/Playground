@@ -1,0 +1,14 @@
+#{extends 'main.html' /}
+#{set title:'Context' /}
+
+<h1>${context.name}</h1>
+
+<div>Total wasted time: ${wastedTime} minutes</div>
+
+<ul>
+#{list items:entries, as:'entry' }
+	
+	<li>${entry.details}</li>
+
+#{/list}
+</ul>

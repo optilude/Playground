@@ -1,0 +1,21 @@
+com.deloitte.timesink.domain.Context(it):
+  shortName: it
+  name: Information Technology
+  description: Laptops and the like
+
+com.deloitte.timesink.domain.Context(phones):
+  shortName: phones
+  name: Phones
+  description: Telephony related things
+
+com.deloitte.timesink.domain.Entry(1):
+  dateTime: 2011-01-20
+  duration: 12
+  details: Laptop boot
+  context: it
+
+  com.deloitte.timesink.domain.Entry(2):
+  dateTime: 2011-01-20
+  duration: 6
+  details: Windows login
+  context: it
