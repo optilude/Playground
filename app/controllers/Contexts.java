@@ -2,9 +2,10 @@ package controllers;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.joda.time.DateTime;
 
-import play.modules.spring.Spring;
 import play.mvc.Controller;
 
 import com.deloitte.timesink.domain.Context;
@@ -15,9 +16,14 @@ import com.deloitte.timesink.service.Reporter;
 
 public class Contexts extends Controller {
 
-	protected static ContextRepository contextRepository = Spring.getBeanOfType(ContextRepository.class);
-	protected static EntryRepository entryRepository = Spring.getBeanOfType(EntryRepository.class);
-	protected static Reporter reporter = Spring.getBeanOfType(Reporter.class);
+	@Inject
+	protected static ContextRepository contextRepository;
+	
+	@Inject
+	protected static EntryRepository entryRepository;
+	
+	@Inject
+	protected static Reporter reporter;
 	
 	public static void view(String name) {
 		

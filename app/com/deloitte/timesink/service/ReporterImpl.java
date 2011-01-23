@@ -3,33 +3,43 @@ package com.deloitte.timesink.service;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+// XXX: Bug in Play means we can't use this on constructors
+// import javax.inject.Inject;
 
 import com.deloitte.timesink.domain.Context;
 import com.deloitte.timesink.domain.Entry;
 import com.deloitte.timesink.repository.EntryRepository;
-import com.google.common.base.Function;
-import com.google.common.collect.Collections2;
+import com.deloitte.utils.configregistry.ConfigurationRegistry;
+import com.google.inject.Inject;
 
-@Service
+import static com.google.common.base.Preconditions.checkNotNull;
+
 public class ReporterImpl implements Reporter {
 
-	private EntryRepository entryRepository;
 	
-	@Autowired
-	ReporterImpl(EntryRepository entryRepository) {
-		this.entryRepository = entryRepository;
+	private EntryRepository entryRepository;
+	private ConfigurationRegistry configurationRegistry;
+	
+	@Inject
+	ReporterImpl(EntryRepository entryRepository, ConfigurationRegistry configurationRegistry) {
+		this.entryRepository = checkNotNull(entryRepository);
+		this.configurationRegistry = checkNotNull(configurationRegistry);
 	}
 	
 	@Override
 	public long sumWastedTime(Context context, Date fromDate, Date toDate) {
+		
+		int minTime = Integer.parseInt(configurationRegistry.getValue("timesink.minTime"));
 		
 		List<Entry> entries = entryRepository.findEntries(context, fromDate, toDate);
 		
 		long minutes = 0;
 		for(Entry e : entries) {
 			minutes += e.duration;
+		}
+		
+		if(minutes < minTime) {
+			return 0;
 		}
 		
 		return minutes;

@@ -4,13 +4,18 @@ import static com.deloitte.timesink.utils.StringUtils.normalizeString;
 
 import javax.persistence.Entity;
 
+import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
 public class Context extends Model {
 	
+	@Required
 	public String shortName;
+	
+	@Required
 	public String name;
+	
 	public String description;
 	
 	public Context(String name, String description) {

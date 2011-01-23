@@ -2,15 +2,9 @@ package com.deloitte.timesink.repository;
 
 import java.util.List;
 
-
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-
 import com.deloitte.timesink.domain.Context;
 import com.deloitte.timesink.domain.Context;
 
-
-@Repository
 public class ContextRepositoryImpl implements ContextRepository {
 	
 	@Override

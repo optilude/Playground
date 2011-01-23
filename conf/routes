@@ -12,3 +12,7 @@ GET		/context/view/{name}					Contexts.view
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
+
+# Crud
+*      /admin              						module:crud
+*      /                						module:secure

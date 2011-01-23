@@ -14,8 +14,8 @@ com.deloitte.timesink.domain.Entry(1):
   details: Laptop boot
   context: it
 
-  com.deloitte.timesink.domain.Entry(2):
-  dateTime: 2011-01-20
-  duration: 6
+com.deloitte.timesink.domain.Entry(2):
+  dateTime: 2011-01-21
+  duration: 3
   details: Windows login
   context: it
