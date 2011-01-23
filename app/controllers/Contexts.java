@@ -12,7 +12,7 @@ import com.deloitte.timesink.domain.Context;
 import com.deloitte.timesink.domain.Entry;
 import com.deloitte.timesink.repository.ContextRepository;
 import com.deloitte.timesink.repository.EntryRepository;
-import com.deloitte.timesink.service.Reporter;
+import com.deloitte.timesink.service.ReportingService;
 
 public class Contexts extends Controller {
 
@@ -23,7 +23,7 @@ public class Contexts extends Controller {
 	protected static EntryRepository entryRepository;
 	
 	@Inject
-	protected static Reporter reporter;
+	protected static ReportingService reporter;
 	
 	public static void view(String name) {
 		

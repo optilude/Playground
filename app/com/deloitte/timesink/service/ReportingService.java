@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.deloitte.timesink.domain.Context;
 
-public interface Reporter {
+public interface ReportingService {
 
 	/**
 	 * Get the total number of minutes of time wasted
