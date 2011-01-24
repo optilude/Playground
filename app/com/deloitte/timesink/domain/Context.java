@@ -7,6 +7,11 @@ import javax.persistence.Entity;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
+/**
+ * A context against which entries can be recorded.
+ * 
+ * Persisted in the database.
+ */
 @Entity
 public class Context extends Model {
 	

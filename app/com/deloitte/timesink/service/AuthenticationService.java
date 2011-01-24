@@ -1,5 +1,8 @@
 package com.deloitte.timesink.service;
 
+/**
+ * Primitive authentication operations
+ */
 public interface AuthenticationService {
 
 	/**

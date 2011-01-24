@@ -11,6 +11,11 @@ import play.data.validation.Min;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
+/**
+ * An entry recording some time wasted
+ * 
+ * Persisted in the database.
+ */
 @Entity
 public class Entry extends Model {
 

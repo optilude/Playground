@@ -4,6 +4,9 @@ import java.util.Date;
 
 import com.deloitte.timesink.domain.Context;
 
+/**
+ * Basic business logic for reporting on wasted time across entries
+ */
 public interface ReportingService {
 
 	/**
