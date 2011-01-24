@@ -42,6 +42,8 @@ public class Contexts extends Controller {
 		
 		long wastedTime = reporter.sumWastedTime(context, fromDate.toDate(), toDate.toDate());
 		
+		// XXX: We'd probably more likely put this in a business logic service,
+		// and not depend on a TransformerRegistry directly in a controller
 		Located located = adapters.transform(context, Located.class);
 		Location location = located.getLocation();
 		
