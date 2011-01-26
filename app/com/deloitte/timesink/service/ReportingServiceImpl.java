@@ -4,32 +4,30 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
+
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.deloitte.timesink.domain.Context;
 import com.deloitte.timesink.domain.Entry;
 import com.deloitte.timesink.repository.EntryRepository;
-import com.deloitte.utils.configregistry.ConfigurationRegistry;
-import com.google.inject.Inject;
-
-//XXX: Play's partial javax.inject.Inject means we can't the real javax.inject.Inect
-// this on constructors, so we use the Google one instead for now
 
 public class ReportingServiceImpl implements ReportingService {
-
 	
 	private EntryRepository entryRepository;
-	private ConfigurationRegistry configurationRegistry;
+	private Properties config;
 	
 	@Inject
-	ReportingServiceImpl(EntryRepository entryRepository, ConfigurationRegistry configurationRegistry) {
+	ReportingServiceImpl(EntryRepository entryRepository, @Named("config") Properties config) {
 		this.entryRepository = checkNotNull(entryRepository);
-		this.configurationRegistry = checkNotNull(configurationRegistry);
+		this.config = checkNotNull(config);
 	}
 	
 	@Override
 	public long sumWastedTime(Context context, Date fromDate, Date toDate) {
 		
-		int minTime = Integer.parseInt(configurationRegistry.getValue("timesink.minTime"));
+		int minTime = Integer.parseInt(config.getProperty("timesink.minTime"));
 		
 		List<Entry> entries = entryRepository.findEntries(context, fromDate, toDate);
 		

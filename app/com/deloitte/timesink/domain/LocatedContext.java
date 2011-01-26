@@ -1,8 +1,9 @@
 package com.deloitte.timesink.domain;
 
+import javax.inject.Inject;
+
 import com.deloitte.timesink.service.LocatorService;
 import com.deloitte.timesink.service.UnableToLocateException;
-import com.google.inject.Inject;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
